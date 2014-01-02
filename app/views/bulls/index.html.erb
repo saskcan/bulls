@@ -1,6 +1,6 @@
-<h1>Listing bulls</h1>
+<h1>2014 Charolais 2 yr. old bulls</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,30 +10,33 @@
       <th>Scrotum</th>
       <th>Sire</th>
       <th>Dam</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <% if current_user.try(:admin?) %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
 
   <tbody>
     <% @bulls.each do |bull| %>
-      <tr>
-        <td><%= bull.name %></td>
+      <tr class="table-striped">
+        <td><%= link_to bull.name, bull %></td>
         <td><%= bull.tag %></td>
         <td><%= bull.dob %></td>
         <td><%= bull.weight %></td>
         <td><%= bull.scrotum %></td>
         <td><%= bull.sire %></td>
         <td><%= bull.dam %></td>
-        <td><%= link_to 'Show', bull %></td>
-        <td><%= link_to 'Edit', edit_bull_path(bull) %></td>
-        <td><%= link_to 'Destroy', bull, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.try(:admin?) %>
+          <td><%= link_to 'Edit', edit_bull_path(bull) %></td>
+          <td><%= link_to 'Delete', bull, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Bull', new_bull_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'New Bull', new_bull_path %>
+<% end %>
