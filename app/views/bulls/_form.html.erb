@@ -1,0 +1,45 @@
+<%= form_for(@bull) do |f| %>
+  <% if @bull.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bull.errors.count, "error") %> prohibited this bull from being saved:</h2>
+
+      <ul>
+      <% @bull.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :scrotum %><br>
+    <%= f.text_field :scrotum %>
+  </div>
+  <div class="field">
+    <%= f.label :sire %><br>
+    <%= f.text_field :sire %>
+  </div>
+  <div class="field">
+    <%= f.label :dam %><br>
+    <%= f.text_field :dam %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<h1>Listing bulls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tag</th>
+      <th>Dob</th>
+      <th>Weight</th>
+      <th>Scrotum</th>
+      <th>Sire</th>
+      <th>Dam</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bulls.each do |bull| %>
+      <tr>
+        <td><%= bull.name %></td>
+        <td><%= bull.tag %></td>
+        <td><%= bull.dob %></td>
+        <td><%= bull.weight %></td>
+        <td><%= bull.scrotum %></td>
+        <td><%= bull.sire %></td>
+        <td><%= bull.dam %></td>
+        <td><%= link_to 'Show', bull %></td>
+        <td><%= link_to 'Edit', edit_bull_path(bull) %></td>
+        <td><%= link_to 'Destroy', bull, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bull', new_bull_path %>
