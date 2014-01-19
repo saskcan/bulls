@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
+<% if false %>
+	<p>
+	  <strong>User:</strong>
+	  <%= @comment.user_id %>
+	</p>
 
-<p>
-  <strong>Bull:</strong>
-  <%= @comment.bull_id %>
-</p>
+	<p>
+	  <strong>Bull:</strong>
+	  <%= @comment.bull_id %>
+	</p>
 
-<p>
+	<p>
+<% end %>
   <strong>Content:</strong>
   <%= @comment.content %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_bull_comment_path(@bull, @comment) %> |
+<%= link_to 'Back', bull_comments_path %>

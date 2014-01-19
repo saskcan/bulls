@@ -10,6 +10,9 @@ class BullsController < ApplicationController
   # GET /bulls/1
   # GET /bulls/1.json
   def show
+    unless current_user.isAdmin?
+      @comments = Comment.where('user_id = ? AND bull_id = ?', current_user.id, @bull.id)
+    end
   end
 
   # GET /bulls/new
@@ -28,7 +31,7 @@ class BullsController < ApplicationController
 
     respond_to do |format|
       if @bull.save
-        format.html { redirect_to @bull, notice: 'Bull was successfully created.' }
+        format.html { redirect_to bulls_url, notice: 'Bull was successfully created.' }
         format.json { render action: 'show', status: :created, location: @bull }
       else
         format.html { render action: 'new' }
