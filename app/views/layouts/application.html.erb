@@ -7,20 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+	<!-- Top nav bar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li><%= link_to 'Bulls', bulls_path %></li>
+				<% unless current_user %>
+					<li><%= link_to 'Sign in', new_user_session_path %></li>
+				<% else %>
+					<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+				<% end %>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<!-- Flash Notices -->
+		<% flash.each do |name, msg| -%>
+			<%= content_tag :div, msg, class: name %>
+		<% end -%>
+		<!-- Sign-up prompt -->
+		<% unless current_user %>
+			<h3>
+				<small>Want to add personal notes and receive updates by email?</small>
+				<%= link_to 'Sign in', new_user_session_path, :class => "btn btn-info" %>
+			</h3>		
+		<% end %>
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-
-	<% if user_signed_in? %>
-		<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-	<% else %>
-		<p>Want to add personal comments and receive updates by email?<br>
-		Sign in or sign up. It's always free.</p>
-		<%= link_to 'Sign in', new_user_session_path %>
-	<% end %>
-
-	<%= yield %>
-</div>
+		<%= yield %>
+	</div>
 </body>
 </html>

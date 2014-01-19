@@ -22,3 +22,11 @@ url('../assets/glyphicons-halflings-regular.woff') format('woff'),
 url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
 url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+
+.bnt-primary > a:active {
+	color: white;
+}
+
+.btn-info {
+	color:white;
+}

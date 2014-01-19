@@ -5,4 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   #attr_accessible :email, :password, :password_confirmation
+
+  def isAdmin?
+  	if admin == true
+  		true
+  	else
+  		false
+  	end
+  end
+
 end
