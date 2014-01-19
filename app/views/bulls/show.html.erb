@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bull.name %>
-</p>
+<h1>Bull: <%= @bull.name %></h1>
 
 <p>
   <strong>Tag:</strong>
@@ -17,12 +14,12 @@
 
 <p>
   <strong>Weight:</strong>
-  <%= @bull.weight %>
+  <%= @bull.weight %> lbs.
 </p>
 
 <p>
   <strong>Scrotum:</strong>
-  <%= @bull.scrotum %>
+  <%= @bull.scrotum %> cm.
 </p>
 
 <p>
@@ -36,21 +33,45 @@
 </p>
 
 <% if current_user.try(:isAdmin?) %>
-  <%= link_to 'Edit', edit_bull_path(@bull) %> |
+  <div style="border:1px solid black; margin:5px; padding:5px">
+  <h5>Admin Control</h5>
+    <%= link_to 'Edit Bull', edit_bull_path(@bull), :class => "btn btn-success" %><br><br>
+    <%= link_to 'Pubic Comment', new_bull_public_comment_path(@bull), :class => "btn btn-danger" %>
+  </div>
 <% end %>
 
-<% unless @comments.empty? %>
-  <h2>Your notes:</h2>
-  <% @comments.each do |comment| %>
-    <h4>On <%= comment.created_at %> you wrote:</h4>
-    <p><%= comment.content %>
-      <%= link_to 'Remove', bull_comment_path(@bull, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %> 
-    </p>
+<% if @public_comments %>
+  <% unless @public_comments.empty? %>
+    <h2>Seller's comments</h2>
+    <% @public_comments.each do |comment| %>
+      <h4>On <%= comment.created_at %> NCC wrote:</h4>
+      <p><%= comment.content %>
+        <% if current_user.try(:isAdmin?) %>
+          <%= link_to 'Remove', bull_public_comment_path(@bull, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %> 
+        <% end %>
+      </p>
+    <% end %>
   <% end %>
+<% end %>
+
+
+
+<% if @comments %>
+  <% unless @comments.empty? %>
+    <h2>Your notes:</h2>
+    <% @comments.each do |comment| %>
+      <h4>On <%= comment.created_at %> you wrote:</h4>
+      <p><%= comment.content %>
+        <%= link_to 'Remove', bull_comment_path(@bull, comment), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" %> 
+      </p>
+    <% end %>
+  <% end %>
+<% elsif current_user %>
+  <h2>You don't have any notes</h2>
 <% end %>
 
 <%#= link_to 'Back', bulls_path %>
 
 <% if user_signed_in? %>
-  <%= link_to 'Write a comment', new_bull_comment_path(@bull), :class => "btn btn-info" %>
+  <%= link_to 'Write a note', new_bull_comment_path(@bull), :class => "btn btn-info" %>
 <% end %>

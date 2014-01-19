@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<% if false %>
+	<p>
+	  <strong>User:</strong>
+	  <%= @public_comment.user_id %>
+	</p>
+
+	<p>
+	  <strong>Bull:</strong>
+	  <%= @public_comment.bull_id %>
+	</p>
+
+	<p>
+<% end %>
+  <strong>Content:</strong>
+  <%= @public_comment.content %>
+</p>
+
+<%= link_to 'Edit', edit_bull_public_comment_path(@bull, @public_comment) %> |
+<%= link_to 'Back', bull_public_comments_path %>

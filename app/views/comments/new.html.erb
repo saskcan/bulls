@@ -1,4 +1,8 @@
-<h1>New comment</h1>
+<h1>New notes</h1>
+
+<% if current_user.isAdmin? %>
+	<div class="alert alert-warning">All notes are private and can only be viewed by you. If you want your note to be visible to everyone, publish a Public Comment.</div>
+<% end %>
 
 <%= render 'form' %>
 

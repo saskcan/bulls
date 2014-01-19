@@ -10,9 +10,10 @@ class BullsController < ApplicationController
   # GET /bulls/1
   # GET /bulls/1.json
   def show
-    unless current_user.isAdmin?
-      @comments = Comment.where('user_id = ? AND bull_id = ?', current_user.id, @bull.id)
+    if current_user
+        @comments = Comment.where('user_id = ? AND bull_id = ?', current_user.id, @bull.id)
     end
+    @public_comments = @bull.public_comments
   end
 
   # GET /bulls/new

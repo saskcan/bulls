@@ -12,8 +12,7 @@
       <th>Sire</th>
       <th>Dam</th>
       <% if current_user.try(:admin?) %>
-        <th></th>
-        <th></th>
+        <th>Admin Controls</th>
       <% end %>
     </tr>
   </thead>
@@ -21,7 +20,7 @@
   <tbody>
     <% @bulls.each do |bull| %>
       <tr>
-        <td><%= link_to bull.name, bull %></td>
+        <td><%= link_to bull.name, bull, :class => "btn btn-default" %></td>
         <td><%= bull.tag %></td>
         <td><%= bull.dob %></td>
         <td><%= bull.weight %></td>
@@ -29,8 +28,8 @@
         <td><%= bull.sire %></td>
         <td><%= bull.dam %></td>
         <% if current_user.try(:admin?) %>
-          <td><%= link_to 'Edit', edit_bull_path(bull) %></td>
-          <td><%= link_to 'Delete', bull, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_bull_path(bull), :class => "btn btn-success" %>
+          <%= link_to 'Delete', bull, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
         <% end %>
       </tr>
     <% end %>
@@ -39,5 +38,5 @@
 
 <br>
 <% if current_user.try(:admin?) %>
-  <%= link_to 'New Bull', new_bull_path %>
+  <%= link_to 'New Bull', new_bull_path, :class => "btn btn-success" %>
 <% end %>

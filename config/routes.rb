@@ -2,7 +2,7 @@ Bulls::Application.routes.draw do
   devise_for :users
 
   resources :bulls do
-    resources :comments
+    resources :comments, :public_comments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
