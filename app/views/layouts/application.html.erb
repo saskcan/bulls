@@ -11,11 +11,11 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<ul class="nav navbar-nav">
-				<li><%= link_to 'Bulls', bulls_path %></li>
+				<li style="float:left"><%= link_to 'Bulls', bulls_path %></li>
 				<% unless current_user %>
-					<li><%= link_to 'Sign in', new_user_session_path %></li>
+					<li style="float:left"><%= link_to 'Sign in', new_user_session_path %></li>
 				<% else %>
-					<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+					<li style="float:left"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -32,7 +32,6 @@
 				<%= link_to 'Sign in', new_user_session_path, :class => "btn btn-info" %>
 			</h3>		
 		<% end %>
-
 		<%= yield %>
 	</div>
 </body>

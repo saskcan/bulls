@@ -10,31 +10,90 @@
       </ul>
     </div>
   <% end %>
-
+  <%# sale order %>
+  <div class="field">
+    <%= f.label :sale_order %><br>
+    <%= f.text_field :sale_order %>
+  </div>
+  <%# name %> 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <%# tag %> 
   <div class="field">
     <%= f.label :tag %><br>
     <%= f.text_field :tag %>
   </div>
+  <%# polled or horned %>
   <div class="field">
-    <%= f.label :dob %><br>
+    <%= f.label :polled, "Polled", :value => "true" %>
+    <%= f.radio_button :polled, true %>
+    <%= f.label :polled, "Horned", :value => "false" %>
+    <%= f.radio_button :polled, false %>
+  </div>
+  <%# twin? %>
+  <div class="field">
+    <%= f.label "Twin" %>
+    <%= f.check_box :twin %>
+  </div>
+  <%# date of birth %> 
+  <div class="field">
+    <%= f.label :dob, "Date of Birth" %><br>
     <%= f.date_select :dob %>
   </div>
+  <%# birth weight %>
+  <div class="field">
+    <%= f.label :birth_weight %><br>
+    <%= f.text_field :bw %>
+  </div>
+  <%# weaning weight %>
+  <div class="field">
+    <%= f.label :weaning_weight %><br>
+    <%= f.text_field :ww %>
+  </div>
+  <%# yearling weight %>
+  <div class="field">
+    <%= f.label :yearling_weight %><br>
+    <%= f.text_field :yw %>
+  </div>
+  <h2>EPDs</h2>
+  <%# birth weight EPD %>
+  <div class="field">
+    <%= f.label :birth_weight_EPD, "Birth Weight EPD" %><br>
+    <%= f.text_field :bw_epd %>
+  </div>
+  <%# weaning weight EPD %>
+  <div class="field">
+    <%= f.label :weaning_weight_EPD, "Weaning Weight EPD" %><br>
+    <%= f.text_field :ww_epd %>
+  </div>
+  <%# yearling weight EPD %>
+  <div class="field">
+    <%= f.label :yearling_weight_EPD, "Yearling Weight EPD" %><br>
+    <%= f.text_field :yw_epd %>
+  </div>
+  <%# milk EPD %>
+  <div class="field">
+    <%= f.label :milk_EPD, "Milk EPD" %><br>
+    <%= f.text_field :milk_epd %>
+  </div>
+  <%# weight %> 
   <div class="field">
     <%= f.label :weight %><br>
     <%= f.number_field :weight %>
   </div>
+  <%# TM %> 
   <div class="field">
     <%= f.label :scrotum %><br>
     <%= f.text_field :scrotum %>
   </div>
+  <%# Sire %> 
   <div class="field">
     <%= f.label :sire %><br>
     <%= f.text_field :sire %>
   </div>
+  <%# Dam %> 
   <div class="field">
     <%= f.label :dam %><br>
     <%= f.text_field :dam %>

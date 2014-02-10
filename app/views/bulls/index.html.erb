@@ -1,40 +1,76 @@
-<h1>Neilson Cattle Company</h1>
-<h2>Purebred Charolais 2-yr-old Bulls</h2>
+<h2>Neilson Cattle Company</h2>
+<h4>Purebred Charolais 2-yr-old Bulls</h4>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tag</th>
-      <th>Dob</th>
-      <th>Weight</th>
-      <th>Scrotum</th>
-      <th>Sire</th>
-      <th>Dam</th>
-      <% if current_user.try(:admin?) %>
-        <th>Admin Controls</th>
+<% i = 0 %>
+<% row = false %>
+<% @bulls.each do |bull| %>
+  <% row = false %>
+  <% if i == 0 %>
+    <div class="row">
+  <% end %>
+  <div class="col-md-4">
+    <div class="asset">
+      <div class="saleOrder">
+        <%= link_to bull.sale_order, bull %>
+      </div>
+      <div class="title">
+        <%= bull.name %> <%= bull.tag %>
+        <p class="subtitle">
+          <% if bull.polled %>
+            Polled
+          <% else %>
+            Horned
+          <% end %>
+          Charolais
+          <% if bull.twin %>
+            Twin
+          <% end %>
+        </p>
+      </div>
+      <div class="sireInfo">
+        <%= bull.dob %>
+      </div>
+      <div class="epds">
+        <div style="float:left; width:50%">
+          BW<br>
+          205<br>
+          365<br>
+          BW<br>
+          WW<br>
+          YW<br>
+          Milk<br>
+          TM
+        </div>
+        <%# stat values %>
+        <div style="float:left; width:50%">
+          <%= bull.bw %><br>
+          <%= bull.ww %><br>
+          <%= bull.yw %><br>
+          <%= bull.bw_epd %><br>
+          <%= bull.ww_epd %><br>
+          <%= bull.yw_epd %><br>
+          <%= bull.milk_epd %><br>
+          <%= bull.scrotum %>
+        </div>
+      </div>
+    </div>
+    <% if current_user.try(:admin?) %>
+        <div class="adminControls">
+          <%= link_to 'Edit', edit_bull_path(bull), :class => "btn btn-success" %>
+          <%= link_to 'Delete', bull, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+        </div>
       <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bulls.each do |bull| %>
-      <tr>
-        <td><%= link_to bull.name, bull, :class => "btn btn-default" %></td>
-        <td><%= bull.tag %></td>
-        <td><%= bull.dob %></td>
-        <td><%= bull.weight %></td>
-        <td><%= bull.scrotum %></td>
-        <td><%= bull.sire %></td>
-        <td><%= bull.dam %></td>
-        <% if current_user.try(:admin?) %>
-          <td><%= link_to 'Edit', edit_bull_path(bull), :class => "btn btn-success" %>
-          <%= link_to 'Delete', bull, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+  <% i += 1 %>
+  <% if i == 3 %>
+    </div>
+    <% i = 0 %>
+    <% row = true %>
+  <% end %>
+<% end %>
+<% unless row %>
+  </div>
+<% end %>
 
 <br>
 <% if current_user.try(:admin?) %>

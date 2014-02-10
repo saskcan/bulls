@@ -1,3 +1,137 @@
-// Place all the styles related to the Bulls controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* default size less than 480 px and desktop, > 992 px */
+$darkBrown:#201600;
+$assetScale:1.0;
+
+@mixin Asset {
+	.asset {
+		width:$assetScale * 320px;
+		height:$assetScale * 224px;
+		margin-top:$assetScale * 16px;
+		border:1px solid $darkBrown;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	.saleOrder {
+		width:$assetScale * 80px - 1px;
+		height:$assetScale * 64px - 1px;
+		font-size:$assetScale * 40px;
+		line-height:normal;
+		padding-left:$assetScale * 26px;
+		float:left;
+		background-color:$darkBrown;
+		border-right:2px solid white;
+
+		a {
+			color:white;
+		}
+	}
+
+	.title {
+		width:$assetScale * 240px - 1px;
+		height:$assetScale * 64px - 1px;
+		font-size:$assetScale * 24px;
+		color:white;
+		line-height:normal;
+		float:left;
+		padding-top:$assetScale * 4px;
+		padding-left:$assetScale * 16px;
+		background-color:$darkBrown;
+
+		.subtitle {
+			font-size:$assetScale * 16px;
+		}
+	}
+
+	.sireInfo {
+		width:$assetScale * 224px - 1px;
+		height:$assetScale * 160px - 1px;
+		float:left;
+		border-right:1px solid $darkBrown;
+	}
+
+	.epds {
+		width:$assetScale * 96px - 1px;
+		height:$assetScale * 160px - 1px;
+		padding-left:$assetScale * 6px;
+		float:left;
+		color:$darkBrown;
+		font-size:$assetScale * 14px;
+		line-height:normal;
+	}
+
+}
+
+@include Asset;
+
+/* fancy smartphones */
+@media (min-width: 480px) {
+	$assetScale:1.5;
+	@include Asset;
+	/*
+	.asset {
+		width:480px;
+		height:336px;
+		margin-top:24px;
+	}
+
+	.saleOrder {
+		width:119px;
+		height:95px;
+	}
+	
+	.title {
+		width:359px;
+		height:95px;
+	}
+
+	.sireInfo {
+		width:335px;
+		height:239px;
+	}
+
+	.epds {
+		width:143px;
+		height:239px;
+	}
+	*/
+}
+
+/* tablets */
+@media (min-width: 768px) {
+	$assetScale:2.0;
+	@include Asset;
+	/*
+	.asset {
+		width:640px;
+		height:448px;
+	}
+
+	.saleOrder {
+		width:159px;
+		height:127px;
+	}
+	
+	.title {
+		width:479px;
+		height:127px;
+	}
+
+	.sireInfo {
+		width:447px;
+		height:319px;
+	}
+
+	.epds {
+		width:191px;
+		height:319px;
+	}
+	*/
+}
+
+/* small desktops */
+@media (min-width: 992px) {
+	$assetScale:1.0;
+	@include Asset;
+}
+
