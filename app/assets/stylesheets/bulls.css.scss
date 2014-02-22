@@ -10,6 +10,7 @@ $assetScale:1.0;
 		border:1px solid $darkBrown;
 		margin-left:auto;
 		margin-right:auto;
+		position:relative;
 	}
 
 	.saleOrder {
@@ -21,10 +22,7 @@ $assetScale:1.0;
 		float:left;
 		background-color:$darkBrown;
 		border-right:2px solid white;
-
-		a {
-			color:white;
-		}
+		color:white;
 	}
 
 	.title {
@@ -43,11 +41,24 @@ $assetScale:1.0;
 		}
 	}
 
-	.sireInfo {
+	.photo {
 		width:$assetScale * 208px - 1px;
 		height:$assetScale * 164px - 1px;
 		float:left;
 		border-right:1px solid $darkBrown;
+		position:relative;
+		.photo_text {
+			position:absolute;
+			top:0;
+			left:0;
+			width:100%;
+			height:$assetScale * 22px;
+			background:rgba(50,50,50,0.6);
+			padding:$assetScale * 3px;
+			font-size:$assetScale * 13px;
+			line-height:$assetScale * 16px;
+			color:white;
+		}
 	}
 
 	.epds {
@@ -58,6 +69,13 @@ $assetScale:1.0;
 		color:$darkBrown;
 		font-size:$assetScale * 14px;
 		line-height:normal;
+	}
+
+	.adminControls {
+		width:$assetScale * 320px;
+		padding-top:15px;
+		margin-left:auto;
+		margin-right:auto;
 	}
 
 }

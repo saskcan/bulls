@@ -14,6 +14,7 @@ class BullsController < ApplicationController
         @comments = Comment.where('user_id = ? AND bull_id = ?', current_user.id, @bull.id)
     end
     @public_comments = @bull.public_comments
+    @pictures = @bull.pictures
   end
 
   # GET /bulls/new

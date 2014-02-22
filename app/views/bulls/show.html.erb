@@ -105,6 +105,12 @@
   <%= @bull.dam %>
 </p>
 
+<% unless @pictures == nil %>
+  <% @pictures.each do |picture| %>
+    <%= image_tag picture.filename, class: 'img img-responsive' %>
+  <% end %>
+<% end %>
+
 <% if current_user.try(:isAdmin?) %>
   <div style="border:1px solid black; margin:5px; padding:5px">
   <h5>Admin Control</h5>
