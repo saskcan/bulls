@@ -1,27 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bull: <%= @bull.name %></h1>
+<h1><%= @bull.sale_order %>&nbsp;NCC&nbsp;<%= @bull.name %>&nbsp;<%= @bull.tag %></h1>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @bull.tag %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @bull.dob %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @bull.weight %> lbs.
-</p>
-
-<p>
-  <strong>Scrotum:</strong>
-  <%= @bull.scrotum %> cm.
-</p>
-
+<div>
+  <%= @bull.reg_num %>&nbsp;NCC&nbsp;<%= @bull.tag %>&nbsp;<%= @bull.horns.titleize %>&nbsp;<%= @bull.dob.strftime("%b. %e, %Y") %>
+</div>
+<%# for mobile screens only %>
+<div class="visible-xs">
+  <div class="row">
+    <div style="float:left; width:85px; padding-left:30px">
+      BW<br>
+      WW<br>
+      YW<br>
+      Milk<br>
+      TM<br>
+      BW<br>
+      205<br>
+      365<br>
+      Act YW<br>
+    </div>
+    <div style="float:left; width:75%">
+      <%= @bull.bw_epd %><br>
+      <%= @bull.ww_epd %><br>
+      <%= @bull.yw_epd %><br>
+      <%= @bull.milk_epd %><br>
+      <%= @bull.scrotum %><br>
+      <%= @bull.bw %><br>
+      <%= @bull.ww %><br>
+      <%= @bull.yw %><br>
+      <%= @bull.real_yw %><br>          
+    </div>
+  </div>
+</div>
+<%# for non-mobile screens only %>
+<div class='hidden-xs'>
+  <table>
+    <tr>
+      <th>
+        BW
+      </th>
+      <th>
+        WW
+      </th>
+      <th>
+        YW
+      </th>
+      <th>
+        MM
+      </th>
+      <th>
+        TM
+      </th>
+      <th>
+        BW
+      </th>
+      <th>
+        205 DW
+      </th>
+      <th>
+        365 DW
+      </th>
+      <th>
+        Act YW
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <%= @bull.bw_epd %>
+      </td>
+      <td>
+        <%= @bull.ww_epd %>
+      </td>
+      <td>
+        <%= @bull.yw_epd %>
+      </td>
+      <td>
+        <%= @bull.milk_epd %>
+      </td>
+      <td>
+        <%= @bull.scrotum %>
+      </td>
+      <td>
+        <%= @bull.bw %>
+      </td>
+      <td>
+        <%= @bull.ww %>
+      </td>
+      <td>
+        <%= @bull.yw %>
+      </td>
+      <td>
+        <%= @bull.real_yw %>
+      </td>
+    </tr>
+  </table>
+</div>
 <p>
   <strong>Sire:</strong>
   <%= @bull.sire %>

@@ -25,12 +25,9 @@
     <%= f.label :tag %><br>
     <%= f.text_field :tag %>
   </div>
-  <%# polled or horned %>
+  <%# horn type %>
   <div class="field">
-    <%= f.label :polled, "Polled", :value => "true" %>
-    <%= f.radio_button :polled, true %>
-    <%= f.label :polled, "Horned", :value => "false" %>
-    <%= f.radio_button :polled, false %>
+    Missing
   </div>
   <%# twin? %>
   <div class="field">
@@ -78,10 +75,10 @@
     <%= f.label :milk_EPD, "Milk EPD" %><br>
     <%= f.text_field :milk_epd %>
   </div>
-  <%# weight %> 
+  <%# actual yearling weight %> 
   <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.number_field :weight %>
+    <%= f.label :real_yw %><br>
+    <%= f.number_field :real_yw %>
   </div>
   <%# TM %> 
   <div class="field">

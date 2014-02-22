@@ -11,20 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140202111746) do
+ActiveRecord::Schema.define(version: 20140222131122) do
 
   create_table "bulls", force: true do |t|
     t.string   "name"
     t.string   "tag"
     t.date     "dob"
-    t.integer  "weight"
+    t.integer  "real_yw"
     t.decimal  "scrotum"
     t.string   "sire"
     t.string   "dam"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sale_order"
-    t.boolean  "polled"
     t.boolean  "twin"
     t.integer  "bw"
     t.integer  "ww"
@@ -33,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140202111746) do
     t.decimal  "ww_epd"
     t.decimal  "yw_epd"
     t.decimal  "milk_epd"
+    t.string   "reg_num"
+    t.string   "horns"
   end
 
   create_table "comments", force: true do |t|
@@ -41,6 +42,13 @@ ActiveRecord::Schema.define(version: 20140202111746) do
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bull_id"
+    t.string   "filename"
   end
 
   create_table "public_comments", force: true do |t|

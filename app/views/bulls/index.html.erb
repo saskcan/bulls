@@ -14,13 +14,9 @@
         <%= link_to bull.sale_order, bull %>
       </div>
       <div class="title">
-        <%= bull.name %> <%= bull.tag %>
+        NCC&nbsp;<%= bull.name %>&nbsp;<%= bull.tag %>
         <p class="subtitle">
-          <% if bull.polled %>
-            Polled
-          <% else %>
-            Horned
-          <% end %>
+          <%= bull.horns.titleize %>
           Charolais
           <% if bull.twin %>
             Twin
@@ -28,29 +24,32 @@
         </p>
       </div>
       <div class="sireInfo">
-        <%= bull.dob %>
+        <%= bull.reg_num %>&nbsp;NCC&nbsp;<%= bull.tag %>
+        <%= bull.dob.strftime("%b. %e, %Y") %>
       </div>
       <div class="epds">
-        <div style="float:left; width:50%">
-          BW<br>
-          205<br>
-          365<br>
+        <div style="float:left; width:55%">
           BW<br>
           WW<br>
           YW<br>
           Milk<br>
-          TM
+          TM<br>
+          BW<br>
+          205<br>
+          365<br>
+          Act YW<br>
         </div>
         <%# stat values %>
-        <div style="float:left; width:50%">
-          <%= bull.bw %><br>
-          <%= bull.ww %><br>
-          <%= bull.yw %><br>
+        <div style="float:left; width:45%">
           <%= bull.bw_epd %><br>
           <%= bull.ww_epd %><br>
           <%= bull.yw_epd %><br>
           <%= bull.milk_epd %><br>
-          <%= bull.scrotum %>
+          <%= bull.scrotum %><br>
+          <%= bull.bw %><br>
+          <%= bull.ww %><br>
+          <%= bull.yw %><br>
+          <%= bull.real_yw %><br>          
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ $assetScale:1.0;
 @mixin Asset {
 	.asset {
 		width:$assetScale * 320px;
-		height:$assetScale * 224px;
+		height:$assetScale * 228px;
 		margin-top:$assetScale * 16px;
 		border:1px solid $darkBrown;
 		margin-left:auto;
@@ -44,15 +44,15 @@ $assetScale:1.0;
 	}
 
 	.sireInfo {
-		width:$assetScale * 224px - 1px;
-		height:$assetScale * 160px - 1px;
+		width:$assetScale * 208px - 1px;
+		height:$assetScale * 164px - 1px;
 		float:left;
 		border-right:1px solid $darkBrown;
 	}
 
 	.epds {
-		width:$assetScale * 96px - 1px;
-		height:$assetScale * 160px - 1px;
+		width:$assetScale * 112px - 1px;
+		height:$assetScale * 164px - 1px;
 		padding-left:$assetScale * 6px;
 		float:left;
 		color:$darkBrown;
