@@ -1,0 +1,5 @@
+<h3>Add a new animal</h3>
+<%= form_tag(kine_path, method: :post) do %>
+	<%= text_field_tag 'name' %><br>
+	<%= submit_tag %>
+<% end %>

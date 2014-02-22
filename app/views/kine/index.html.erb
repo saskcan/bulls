@@ -1,0 +1,11 @@
+<% @kine.each do |cow| %>
+	<strong><%= link_to cow.name, cow_path(cow) %></strong><br>
+	<% if cow.sire %>
+		&nbsp;&nbsp;&nbsp;<%= cow.sire.name %><br>
+	<% end %>
+	<% if cow.dam %>
+		&nbsp;&nbsp;&nbsp;<%= cow.dam.name %><br>
+	<% end %>
+<% end %>
+
+<%= render 'new' %>

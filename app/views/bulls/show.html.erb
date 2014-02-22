@@ -96,13 +96,76 @@
   </table>
 </div>
 <p>
-  <strong>Sire:</strong>
-  <%= @bull.sire %>
-</p>
-
-<p>
-  <strong>Dam:</strong>
-  <%= @bull.dam %>
+  <%# father %>
+  <% s = @bull.sire %>
+  <% if s %>
+    <%= s.name %><br>
+    <%# grandfather 1 %>
+    <% ss = s.sire %>
+    <% if ss %>
+      &nbsp;&nbsp;<%= ss.name %><br>
+      <%# great grandfather 1 %>
+      <% sss = ss.sire %>
+      <% if sss %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= sss.name %><br>
+      <% end %>
+      <%# great grandmother 1 %>
+      <% ssd = ss.dam %>
+      <% if ssd %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= ssd.name %><br>
+      <% end %>
+    <% end %>
+    <%# grandmother 1 %>
+    <% sd = s.dam %>
+    <% if sd %>
+      &nbsp;&nbsp;<%= sd.name %><br>
+      <%# great grandfather 2 %>
+      <% sds = sd.sire %>
+      <% if sds %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= sds.name %><br>
+      <% end %>
+      <%# great grandmother 2 %>
+      <% sdd = sd.dam %>
+      <% if sdd %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= sdd.name %><br>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%# mother %>
+  <% d = @bull.dam %>
+  <% if d %>
+    <%= d.name %><br>
+    <%# grandfather 2 %>
+    <% ds = d.sire %>
+    <% if ds %>
+      &nbsp;&nbsp;<%= ds.name %><br>
+      <%# great grandfather 3 %>
+      <% dss = ds.sire %>
+      <% if dss %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= dss.name %><br>
+      <% end %>
+      <%# great grandmother 3 %>
+      <% dsd = ds.dam %>
+      <% if dsd %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= dsd.name %><br>
+      <% end %>
+    <% end %>
+    <%# grandmother 2 %>
+    <% dd = d.dam %>
+    <% if dd %>
+      &nbsp;&nbsp;<%= dd.name %><br>
+      <%# great grandfather 4 %>
+      <% dds = dd.sire %>
+      <% if dds %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= dds.name %><br>
+      <% end %>
+      <%# great grandmother 4 %>
+      <% ddd = dd.dam %>
+      <% if ddd %>
+        &nbsp;&nbsp;&nbsp;&nbsp;<%= ddd.name %><br>
+      <% end %>
+    <% end %>
+  <% end %>
 </p>
 
 <% unless @pictures == nil %>

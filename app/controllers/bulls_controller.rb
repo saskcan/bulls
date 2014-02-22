@@ -46,7 +46,7 @@ class BullsController < ApplicationController
   # PATCH/PUT /bulls/1.json
   def update
     respond_to do |format|
-      if @bull.update(bull_params)
+      if @bull.update_attributes(bull_params)
         format.html { redirect_to @bull, notice: 'Bull was successfully updated.' }
         format.json { head :no_content }
       else
@@ -74,6 +74,6 @@ class BullsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bull_params
-      params.require(:bull).permit(:name, :tag, :dob, :weight, :scrotum, :sire, :dam)
+      params.require(:bull).permit(:sale_order, :name, :tag, :twin, :dob, :sire_id, :dam_id, :bw, :ww, :yw, :bw_epd, :ww_epd, :yw_epd, :milk_epd, :real_yw, :scrotum)
     end
 end

@@ -5,6 +5,8 @@ Bulls::Application.routes.draw do
     resources :comments, :public_comments
   end
 
+  resources :kine
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

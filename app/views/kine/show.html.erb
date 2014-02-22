@@ -1,0 +1,22 @@
+<h1><%= @cow.name %></h1>
+<%= form_for(@cow, method: :put) do |f|%>
+	<%= f.text_field :name %><br>
+	Sire:
+	<% if @cow.sire %>
+		<%= @cow.sire.name %>
+	<% else %>
+		None
+	<% end %><br>
+	<%= collection_select( :cow, :sire_id, Cow.all.order(name: :asc), :id, :name, include_blank: :true ) %><br>
+	Dam:
+	<% if @cow.dam %>
+		<%= @cow.dam.name %>
+	<% else %>
+		None
+	<% end %><br>
+	<%= collection_select( :cow, :dam_id, Cow.all.order(name: :asc), :id, :name, include_blank: :true ) %><br>
+	<%= f.submit %>
+<% end %>
+<%= render 'new' %>
+
+<%= link_to 'Back', kine_path %>

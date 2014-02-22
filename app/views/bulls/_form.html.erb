@@ -39,6 +39,12 @@
     <%= f.label :dob, "Date of Birth" %><br>
     <%= f.date_select :dob %>
   </div>
+  
+    Sire:
+    <%= collection_select( :bull, :sire_id, Cow.all.order(name: :asc), :id, :name, include_blank: :true ) %><br>
+    Dam:
+    <%= collection_select( :bull, :dam_id, Cow.all.order(name: :asc), :id, :name, include_blank: :true ) %><br>
+
   <%# birth weight %>
   <div class="field">
     <%= f.label :birth_weight %><br>
@@ -84,16 +90,6 @@
   <div class="field">
     <%= f.label :scrotum %><br>
     <%= f.text_field :scrotum %>
-  </div>
-  <%# Sire %> 
-  <div class="field">
-    <%= f.label :sire %><br>
-    <%= f.text_field :sire %>
-  </div>
-  <%# Dam %> 
-  <div class="field">
-    <%= f.label :dam %><br>
-    <%= f.text_field :dam %>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-success" %>
